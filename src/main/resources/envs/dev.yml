@@ -1,0 +1,4 @@
+FAMILY_MYSQL_HOST: localhost
+DATABASE: logicea
+MS_USERNAME: logicea
+MS_PASSWORD: logicea
