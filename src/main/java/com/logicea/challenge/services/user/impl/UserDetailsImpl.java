@@ -6,10 +6,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 
 public class UserDetailsImpl implements UserDetails {
@@ -21,10 +19,12 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
 
-    private Collection<? extends GrantedAuthority> authorities;
+    private String firstAuthorities;
+
+    private List<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(UUID uuid, String username, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+                           List<? extends GrantedAuthority> authorities) {
         this.uuid = uuid;
         this.username = username;
         this.password = password;
@@ -42,8 +42,13 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public List<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public String getFirstAuthorities() {
+        firstAuthorities = authorities.get(0).getAuthority().toString();
+        return firstAuthorities;
     }
 
     @Override
@@ -54,6 +59,10 @@ public class UserDetailsImpl implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 
     @Override

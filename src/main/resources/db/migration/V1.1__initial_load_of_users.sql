@@ -8,5 +8,3 @@ insert into tbl_user values (unhex(replace('c9afda1b-81f0-47e9-af3d-e4b9dfa44d52
 insert into tbl_user values (unhex(replace('08b1b14e-ab02-43ba-bef4-2b4c97c8cc0e', '-', '')), 'rvalencia@logicea.com', '$2a$10$S9ajiK/bdnneA43RURyi2.PRsbot8QtTbBSw127469oH25DGUowZq', 'member');
 insert into tbl_user values (unhex(replace('46701084-ef48-4623-89de-13fb6ffdcaac', '-', '')), 'sally@logicea.com', '$2a$10$6Vsa3KLHPhg711C1ybG3RuSjTel.bc8ctKO7iKJ5dngtiF23jDly.', 'member');
 insert into tbl_user values (unhex(replace('5c616962-b4bf-4036-8afb-60a3db611cac', '-', '')), 'swick@logicea.com', '$2a$10$0Qk5ohuaRYxAvCGH5LMMEuMgMvAUWvKFl6muKyU9N4d4w8pHFra66', 'admin');
-
-

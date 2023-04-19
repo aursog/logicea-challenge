@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto loginUser(String username, String password) throws NotFoundRecordException {
         return userRepository.findByUsername(username)
-                .map(UserMapper.INSTANCE::toDto)
+                .map(UserMapper::toDto)
                 .orElseThrow(() -> new NotFoundRecordException("User with username -> " + username + " not found"));
     }
 }
