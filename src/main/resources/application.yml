@@ -37,3 +37,4 @@ server:
 
 jwt:
   secret: "logicea-challenge"
+  expiration: 86400000

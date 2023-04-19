@@ -20,10 +20,12 @@ public class JwtTokenUtil implements Serializable {
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenUtil.class);
 
     private static final long serialVersionUID = -1386614230724041951L;
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
 
     @Value("${jwt.secret}")
     private String secret;
+
+    @Value("${jwt.expiration}")
+    private long expiration;
 
     public String generateJwtToken(Authentication authentication) {
 
@@ -32,7 +34,7 @@ public class JwtTokenUtil implements Serializable {
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))
                 .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + JWT_TOKEN_VALIDITY))
+                .setExpiration(new Date((new Date()).getTime() + expiration))
                 .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
